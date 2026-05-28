@@ -56,6 +56,12 @@
 9. AI(Writer) — 2차 plan v2 텍스트로 제시. 템플릿 8개 섹션 고정, 섹션별 입력 출처 매핑표 추가.
 10. 사용자 — 2차 승인. 5가지 조건(섹션 구조 고정 / My Note 기반 4개 섹션 엄수 / Summary 기반 핵심 내용 분리 / 한 줄 기록 원칙 / 작업 범위 3개 파일만) 명시.
 11. AI(Writer) — `readme-draft.md` 생성, `prompt-log.md`·`work-log.md` 갱신.
+12. 사용자 — `readme-draft.md` 다음 액션 1번 항목("이 My Note를 바탕으로 README Draft 생성을 요청한다.") 제거 요청. 4개 항목으로 재작성.
+13. Codex Reviewer — `review-findings.md` 생성. 발견한 문제 3개: ① My Note 어조 단정형 변환(Medium) ② 완료된 다음 액션 항목 잔존(Low) ③ HTML 주석 처리 판단 필요(Low).
+14. 사용자 — review-findings 반영을 위한 3차 plan 작성 요청.
+15. AI(Writer) — 3차 plan 텍스트로 제시 (어조 복원 4곳 / 다음 액션 재작성 / HTML 주석 유지 판단 포함).
+16. 사용자 — 3차 승인. 다음 액션 수정 방식 조정(이번 작업에서 완료되는 항목 제외, 4개 항목으로 확정). HTML 주석 이번 수정에서 유지.
+17. AI(Writer) — `readme-draft.md` 어조 4곳 복원 + 다음 액션 재작성, `prompt-log.md`·`work-log.md` 갱신.
 
 ## 결과물
 - 생성 파일:

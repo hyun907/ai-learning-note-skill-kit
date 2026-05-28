@@ -74,11 +74,57 @@ README Draft 생성 (`readme-draft.md`). `readme-draft-template.md` 8개 섹션 
 - "한 줄 기록"이 `my-note.md`에 있는 기존 문장에서 선택되었는지 확인 (신규 문장 생성 없음).
 - 작업 범위 외 파일(`README.md`, `CLAUDE.md`, `AGENTS.md`, `docs/*`, `templates/*`, `learning-summary.md`, `my-note.md`, `plan.md`) 수정 없음.
 
+### 남은 리스크 (2차 작업 기준)
+- `readme-draft.md`의 "다음 액션" 1번 항목("이 My Note를 바탕으로 README Draft 생성을 요청한다.")은 이미 완료된 단계이므로, 사용자가 README Draft 확정 시 해당 항목 업데이트 여부를 판단해야 한다. → 3차 작업에서 해결.
+- Reviewer(Codex) 흐름은 별도 환경에서 추가 검증이 필요하다. → `review-findings.md` 생성으로 완료.
+
+---
+
+## 3차 작업 (2026-05-28)
+
+### 작업 목표
+`review-findings.md`에 기록된 3개 문제를 반영해 `readme-draft.md`를 수정한다.
+
+### 전제 조건
+- Codex Reviewer가 `review-findings.md` 생성 완료.
+- 3차 plan 사용자 승인 완료 (2026-05-28). 다음 액션 수정 방식 조정 포함.
+
+### 수정한 파일
+- `notes/2026-05-27-claude-codex-workflow/readme-draft.md`
+- `notes/2026-05-27-claude-codex-workflow/prompt-log.md`
+- `notes/2026-05-27-claude-codex-workflow/work-log.md`
+
+### 반영한 finding별 수정 내용
+
+**문제 1 — My Note 어조 단정형 변환 (Medium) → 복원 완료**
+
+| 섹션 | 수정 전 | 수정 후 |
+|---|---|---|
+| 내가 이해한 점 | "중요하다." | "중요하다고 이해했다." |
+| 내 학습이나 프로젝트에 연결할 점 | "중요하다." | "중요하다고 느꼈다." |
+| 내 학습이나 프로젝트에 연결할 점 | "방법이다." | "방법이라고 이해했다." |
+| 아직 더 공부할 점 | "구체화해야 한다." | "구체화해야 할 것 같다." |
+
+**문제 2 — 완료된 다음 액션 잔존 (Low) → 재작성 완료**
+
+- 이전: 완료된 항목 포함 4개 (README Draft 분리 확인, Codex Reviewer 검토 포함)
+- 이후: 아직 남은 작업 4개로 재작성 (최종 기록 검토 / 게시용 버전 / 2차 테스트 / Reviewer 재검토 판단)
+
+**문제 3 — HTML 주석 처리 (Low) → 이번 수정에서 유지**
+
+- 판단: `readme-draft.md`는 아직 초안 단계. 게시용 README 확정 시 별도 작업에서 제거.
+
+### 검증 내용
+- 어조 복원 4곳 모두 `my-note.md` 원문과 1:1 대조 확인.
+- 주변 문장 내용·의미 변경 없음.
+- 수정 금지 파일(`my-note.md`, `learning-summary.md`, `review-findings.md`, `docs/*`, `templates/*` 등) 미수정.
+- HTML 주석 미변경 (유지).
+
 ### 남은 리스크
-- `readme-draft.md`의 "다음 액션" 1번 항목("이 My Note를 바탕으로 README Draft 생성을 요청한다.")은 이미 완료된 단계이므로, 사용자가 README Draft 확정 시 해당 항목 업데이트 여부를 판단해야 한다.
-- Reviewer(Codex) 흐름은 별도 환경에서 추가 검증이 필요하다.
+- HTML 주석은 이번에 유지했으나, 게시 전 제거 여부를 사용자가 별도 판단해야 한다.
+- Reviewer 재검토(문제 1·2 반영 후) 필요 여부는 사용자가 결정한다.
 
 ### 다음 작업
-- 사용자가 `readme-draft.md` 내용을 검토하고 확정한다.
-- Codex Reviewer 흐름(`review-findings-template.md`)으로 결과물을 검토한다.
-- review-findings 결과를 바탕으로 필요 시 3차 plan을 작성하고 사용자 승인 후 수정한다.
+- 사용자가 수정된 `readme-draft.md`를 최종 기록으로 사용할지 검토한다.
+- 필요 시 HTML 주석을 제거한 게시용 버전을 별도로 만든다.
+- 실제 Claude Code/Cowork 관련 외부 자료로 2차 테스트를 진행한다.
