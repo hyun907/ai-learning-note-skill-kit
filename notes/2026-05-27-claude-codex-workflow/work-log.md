@@ -33,18 +33,52 @@
 - `my-note.md`의 다섯 항목 헤더가 `my-note-template.md`와 동일한지 비교.
 - `learning-summary.md`의 모든 주장에 출처 파일을 괄호로 명시했는지 확인.
 
-## 남은 리스크
+## 남은 리스크 (1차 승인 기준)
 - `learning-summary.md`의 "5. 생각해볼 질문"이 자료에 답이 없는 열린 질문임을 명시했지만, 사용자가 답을 단정하지 않도록 My Note 작성 단계에서도 동일 가드레일을 환기할 필요가 있다.
-- 2차 승인 전에 `readme-draft.md`가 실수로 만들어지지 않도록 주의 (가드레일 재확인 필요).
 - 본 테스트는 Writer 흐름만 검증한다. Reviewer(Codex) 흐름은 별도 환경에서 추가 검증이 필요하다.
 
-## 다음 작업
-- 사용자가 `my-note.md`의 5개 항목을 직접 작성한다.
-  1. 이 자료를 읽은 이유
-  2. 내가 이해한 핵심
-  3. 내 학습이나 프로젝트에 연결할 점
-  4. 아직 헷갈리는 점
-  5. 다음 액션
-- 작성 완료 후, README Draft 작성을 위한 별도 plan을 Writer가 작성하고 사용자의 2차 승인을 받는다.
-- 2차 승인 후 `readme-draft.md`를 생성하고 `prompt-log.md`, `work-log.md`를 갱신한다.
-- 마지막으로 Reviewer(Codex) 흐름으로 결과물 검토를 안내한다.
+---
+
+## 2차 작업 (2026-05-28)
+
+### 작업 목표
+README Draft 생성 (`readme-draft.md`). `readme-draft-template.md` 8개 섹션 구조 검증 포함.
+
+### 전제 조건
+- 사용자가 `my-note.md` 5개 항목 직접 작성 완료.
+- 2차 plan v2 사용자 승인 완료 (2026-05-28).
+
+### 생성한 파일
+- `notes/2026-05-27-claude-codex-workflow/readme-draft.md` — `readme-draft-template.md` 8개 섹션 구조 그대로 사용.
+
+### 수정한 파일
+- `notes/2026-05-27-claude-codex-workflow/prompt-log.md` — 2차 plan v1/v2, 2차 승인, readme-draft.md 생성 내용 추가.
+- `notes/2026-05-27-claude-codex-workflow/work-log.md` — 본 항목 추가.
+
+### 섹션별 작성 기준
+| 섹션 | 출처 | 비고 |
+|---|---|---|
+| 학습 주제 | `learning-summary.md` 자료 정보 | |
+| 정리한 자료 | `learning-summary.md` 자료 정보 | 제목·출처·검토 시점 |
+| 핵심 내용 | `learning-summary.md` 핵심 주장·주요 개념 | Summary 기반 전용 |
+| 내가 이해한 점 | `my-note.md` "내가 이해한 핵심" | AI 가공·확장 없음 |
+| 내 학습이나 프로젝트에 연결할 점 | `my-note.md` 해당 섹션 | AI 가공·확장 없음 |
+| 아직 더 공부할 점 | `my-note.md` "아직 헷갈리는 점" | AI 가공·확장 없음 |
+| 다음 액션 | `my-note.md` "다음 액션" | 원문 그대로 |
+| 한 줄 기록 | `my-note.md` "내가 이해한 핵심" 첫 문장 | my-note.md 기존 문장 선택 |
+
+### 검증 내용
+- `readme-draft-template.md`의 8개 섹션이 동일한 순서로 존재하는지 확인.
+- Summary 기반 섹션("핵심 내용")에 My Note 해석이 포함되지 않았는지 확인.
+- My Note 기반 4개 섹션에 AI가 새로 추가한 해석이 없는지 확인.
+- "한 줄 기록"이 `my-note.md`에 있는 기존 문장에서 선택되었는지 확인 (신규 문장 생성 없음).
+- 작업 범위 외 파일(`README.md`, `CLAUDE.md`, `AGENTS.md`, `docs/*`, `templates/*`, `learning-summary.md`, `my-note.md`, `plan.md`) 수정 없음.
+
+### 남은 리스크
+- `readme-draft.md`의 "다음 액션" 1번 항목("이 My Note를 바탕으로 README Draft 생성을 요청한다.")은 이미 완료된 단계이므로, 사용자가 README Draft 확정 시 해당 항목 업데이트 여부를 판단해야 한다.
+- Reviewer(Codex) 흐름은 별도 환경에서 추가 검증이 필요하다.
+
+### 다음 작업
+- 사용자가 `readme-draft.md` 내용을 검토하고 확정한다.
+- Codex Reviewer 흐름(`review-findings-template.md`)으로 결과물을 검토한다.
+- review-findings 결과를 바탕으로 필요 시 3차 plan을 작성하고 사용자 승인 후 수정한다.

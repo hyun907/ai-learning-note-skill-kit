@@ -49,20 +49,29 @@
 2. AI(Writer) — `ai-learning-note` Skill 트리거 후 plan-template 기반 plan을 텍스트로 제시. 파일은 만들지 않음.
 3. 사용자 — 1차 승인. `my-note.md` 항목 5개 고정 조건 추가. 기존 레포 문서는 수정 금지 재확인.
 4. AI(Writer) — 1차 승인 범위 6개 파일 생성. `my-note.md`는 `my-note-template.md` 원문 그대로 (답변 칸 빈 줄).
-5. (예정) 사용자 — `my-note.md` 5개 항목 직접 작성.
-6. (예정) AI(Writer) — README Draft 작성을 위한 별도 plan 작성 및 2차 승인 요청.
+5. 사용자 — `my-note.md` 5개 항목 직접 작성 완료.
+6. 사용자 — README Draft 생성을 위한 2차 plan 작성 요청.
+7. AI(Writer) — 2차 plan v1 텍스트로 제시 (입력 파일 3개 / 생성 예정 파일 / 수정 예정 파일 / 작성 원칙 / 리스크 / 승인 요청 포함).
+8. 사용자 — 2차 plan 수정 요청. ① `readme-draft-template.md` 8개 섹션 구조 사용, ② My Note 반영 원칙 수정(의미 추가 금지, 표현 가벼운 정리 허용). 파일 생성 금지 유지.
+9. AI(Writer) — 2차 plan v2 텍스트로 제시. 템플릿 8개 섹션 고정, 섹션별 입력 출처 매핑표 추가.
+10. 사용자 — 2차 승인. 5가지 조건(섹션 구조 고정 / My Note 기반 4개 섹션 엄수 / Summary 기반 핵심 내용 분리 / 한 줄 기록 원칙 / 작업 범위 3개 파일만) 명시.
+11. AI(Writer) — `readme-draft.md` 생성, `prompt-log.md`·`work-log.md` 갱신.
 
 ## 결과물
 - 생성 파일:
   - `notes/2026-05-27-claude-codex-workflow/input-learning-material.md`
   - `notes/2026-05-27-claude-codex-workflow/plan.md`
   - `notes/2026-05-27-claude-codex-workflow/learning-summary.md`
-  - `notes/2026-05-27-claude-codex-workflow/my-note.md` (빈 템플릿)
+  - `notes/2026-05-27-claude-codex-workflow/my-note.md` (사용자 직접 작성 완료)
   - `notes/2026-05-27-claude-codex-workflow/prompt-log.md`
   - `notes/2026-05-27-claude-codex-workflow/work-log.md`
-- 수정 파일: 없음
+  - `notes/2026-05-27-claude-codex-workflow/readme-draft.md` (2차 승인 후 생성)
+- 수정 파일:
+  - `notes/2026-05-27-claude-codex-workflow/prompt-log.md` (2차 승인 내용 추가)
+  - `notes/2026-05-27-claude-codex-workflow/work-log.md` (readme-draft.md 생성 결과 추가)
 
 ## 확인 필요 사항
-- 사용자가 `my-note.md`의 5개 항목을 직접 작성해야 README Draft 단계로 진행 가능.
-- README Draft 작성 전에 반드시 2차 plan 작성 및 사용자 승인 필요.
-- Reviewer(Codex) 흐름은 본 1차 테스트 이후 별도 진행. 본 작업에서는 안내까지만 수행한다.
+- `readme-draft.md`가 `readme-draft-template.md` 8개 섹션 구조를 그대로 따르는지 확인.
+- My Note 기반 4개 섹션("내가 이해한 점", "내 학습이나 프로젝트에 연결할 점", "아직 더 공부할 점", "다음 액션")에 Summary 내용이 섞이지 않았는지 확인.
+- "한 줄 기록"이 `my-note.md`에 있는 문장에서 선택되었는지 확인.
+- Reviewer(Codex) 흐름은 본 테스트 이후 별도 진행.
