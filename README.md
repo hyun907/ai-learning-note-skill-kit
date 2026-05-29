@@ -62,7 +62,19 @@ AI 요약만으로 학습 기록을 만들면 다음 문제가 생긴다.
 ```
 .
 ├── README.md
+├── CLAUDE.md
 ├── AGENTS.md
+├── notes/
+│   └── 2026-05-27-claude-codex-workflow/
+│       ├── input-learning-material.md
+│       ├── plan.md
+│       ├── learning-summary.md
+│       ├── my-note.md
+│       ├── readme-draft.md
+│       ├── review-findings.md
+│       ├── review-findings-followup.md
+│       ├── prompt-log.md
+│       └── work-log.md
 ├── .claude/
 │   └── skills/
 │       └── ai-learning-note/
@@ -104,7 +116,7 @@ AI 요약만으로 학습 기록을 만들면 다음 문제가 생긴다.
 
 ## 사용 예시
 
-`examples/` 폴더는 본 Kit의 전체 흐름을 한 번 돌린 결과를 가상 자료로 시연한 것이다.
+`examples/` 폴더는 본 Kit의 전체 흐름을 한 번 돌린 결과를 **가상 자료로 시연**한 것이다.
 
 - `examples/input-learning-material.md` — 가상 학습 자료
 - `examples/example-plan.md` — plan 작성 예시
@@ -114,6 +126,39 @@ AI 요약만으로 학습 기록을 만들면 다음 문제가 생긴다.
 - `examples/example-work-log.md` — Work Log 예시
 - `examples/example-review-findings.md` — Codex Reviewer의 review-findings 예시
 - `examples/example-prompt-log.md` — Prompt Log 예시
+
+`notes/2026-05-27-claude-codex-workflow/` 폴더는 **실제 Writer/Reviewer 테스트**를 진행한 결과물이다. 레포 내부 문서(SKILL.md, 템플릿, CLAUDE.md 등)를 학습 자료로 삼아 진행한 1차 테스트이며, 외부 학습 자료 투입 전 워크플로 검증이 목적이었다.
+
+- `input-learning-material.md` — 테스트에 사용한 학습 자료
+- `plan.md` — Writer가 작성한 plan
+- `learning-summary.md` — plan 승인 후 Writer가 생성한 Summary
+- `my-note.md` — 사용자가 직접 작성한 My Note
+- `readme-draft.md` — My Note 작성 이후 별도 승인으로 생성된 README Draft 초안
+- `review-findings.md` — Codex Reviewer의 검토 결과
+- `review-findings-followup.md` — Writer 수정 후 Reviewer의 follow-up 검토
+- `prompt-log.md` — 전 과정의 프롬프트 기록
+- `work-log.md` — 변경 사항 요약 로그
+
+## 실제 검증 결과
+
+2026-05-27, 레포 내부 문서(SKILL.md, 템플릿, CLAUDE.md 등)를 학습 자료로 삼아 **1차 Writer/Reviewer 테스트**를 진행했다. 외부 학습 자료를 투입한 검증이 아닌, 워크플로 자체가 의도대로 동작하는지 확인하기 위한 내부 검증이다.
+
+**진행 흐름:**
+
+1. Claude Writer가 plan 작성, 사용자 승인 후 Learning Summary 생성
+2. My Note는 사용자가 직접 작성 (AI 미작성)
+3. README Draft는 My Note 작성 이후 별도 승인으로 생성
+4. Codex Reviewer가 직접 수정 없이 review-findings 작성
+5. Writer가 findings를 반영해 수정
+6. Reviewer가 follow-up 검토를 진행하고 추가 수정 불필요 확인
+
+**이번 테스트에서 확인한 인사이트:**
+
+- plan-first approval gate가 의도대로 동작했다. 사용자 승인 전 파일이 생성되지 않았다.
+- Reviewer가 My Note의 신중한 어조가 단정형으로 바뀐 문제를 발견했다. AI가 새 내용을 추가하지 않아도 **어조 변경만으로 사용자 해석의 강도가 달라질 수 있다**는 점을 확인했다. Summary와 My Note 분리만으로는 부족하고, 어조 수준에서도 검토가 필요함을 시사한다.
+- Writer / Reviewer 간 직접 수정 없이 findings → 반영 → follow-up 흐름이 실제로 작동했다.
+
+결과물은 `notes/2026-05-27-claude-codex-workflow/` 참고.
 
 ## Guardrails
 
@@ -137,8 +182,7 @@ AI 요약만으로 학습 기록을 만들면 다음 문제가 생긴다.
 
 ## Next Steps
 
-- 실제 학습 노트 레포에 본 Kit을 적용해 첫 사례 운영.
+- 실제 Claude Code/Cowork 관련 외부 자료 일부를 넣어 2차 테스트 진행.
 - Codex Skill의 인식 경로를 실제 실행 환경에서 확인.
-- Writer / Reviewer 사이의 수정 권한 경계 가이드 보강.
-- 다국어 템플릿 필요 여부 검토.
-# ai-learning-note-skill-kit
+- review-findings 반영 후 Writer 재수정 흐름을 docs에 보강할지 검토.
+- 게시용 README Draft 생성 시 HTML 주석 제거 옵션 검토.
