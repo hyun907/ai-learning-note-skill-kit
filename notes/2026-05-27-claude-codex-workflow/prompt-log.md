@@ -62,6 +62,15 @@
 15. AI(Writer) — 3차 plan 텍스트로 제시 (어조 복원 4곳 / 다음 액션 재작성 / HTML 주석 유지 판단 포함).
 16. 사용자 — 3차 승인. 다음 액션 수정 방식 조정(이번 작업에서 완료되는 항목 제외, 4개 항목으로 확정). HTML 주석 이번 수정에서 유지.
 17. AI(Writer) — `readme-draft.md` 어조 4곳 복원 + 다음 액션 재작성, `prompt-log.md`·`work-log.md` 갱신.
+18. Codex Reviewer — `review-findings-followup.md` 생성. 이전 3개 finding 모두 반영됨 확인, 추가 수정 필요 없음으로 종결.
+19. 사용자 — 검증용 `readme-draft.md`를 바탕으로 게시용 README 생성 요청. plan-first approval 명시. 입력 파일 5개와 작성 원칙 9가지(의미 유지 / 어조 유지 / 해석 추가 금지 / HTML 주석 제거 / 제목 교체 / 초안 안내문 제거 / 다음 액션 재정리 / 입력 파일 미수정 / 로그 갱신은 plan에서 제안) 명시.
+20. AI(Writer) — 4차 plan 텍스트로 제시 (생성 1개 / 수정 2개 / 제거할 요소 표 / 유지할 요소 / 다음 액션 4개 / 리스크 / 승인 요청).
+21. 사용자 — 4차 승인. 5가지 조건(생성 가능 파일 1개 / 수정 가능 파일 2개 / 수정 금지 파일 명시 / 게시용 README 원칙 7가지 / 작업 후 요약 6항목) 명시.
+22. AI(Writer) — `notes/2026-05-27-claude-codex-workflow/README.md` 생성, `prompt-log.md`·`work-log.md` 갱신.
+23. 사용자 — 게시용 `README.md`의 `## 다음 액션` 섹션 제거 요청. 핵심 의미 두 가지(2차 테스트 / Draft 분리 관리 규칙)는 `아직 더 공부할 점`에 한 문장으로 흡수. 7개 섹션 구조 명시. plan-first approval 유지.
+24. AI(Writer) — 5차 plan 텍스트로 제시 (수정 1개 / 로그 갱신 제안 / 제거·추가 항목 / 7개 섹션 구조 / 흡수 제외 항목 처리 / 리스크 / 승인 요청).
+25. 사용자 — 5차 승인.
+26. AI(Writer) — `README.md`에서 `## 다음 액션` 섹션 제거 + `아직 더 공부할 점` 마지막에 한 문장 추가, `prompt-log.md`·`work-log.md` 갱신.
 
 ## 결과물
 - 생성 파일:
@@ -72,12 +81,15 @@
   - `notes/2026-05-27-claude-codex-workflow/prompt-log.md`
   - `notes/2026-05-27-claude-codex-workflow/work-log.md`
   - `notes/2026-05-27-claude-codex-workflow/readme-draft.md` (2차 승인 후 생성)
+  - `notes/2026-05-27-claude-codex-workflow/README.md` (4차 승인 후 생성, 게시용)
 - 수정 파일:
-  - `notes/2026-05-27-claude-codex-workflow/prompt-log.md` (2차 승인 내용 추가)
-  - `notes/2026-05-27-claude-codex-workflow/work-log.md` (readme-draft.md 생성 결과 추가)
+  - `notes/2026-05-27-claude-codex-workflow/prompt-log.md` (2차·3차·4차·5차 승인 내용 추가)
+  - `notes/2026-05-27-claude-codex-workflow/work-log.md` (readme-draft.md 생성·수정 결과, README.md 생성·수정 결과 추가)
+  - `notes/2026-05-27-claude-codex-workflow/README.md` (5차 승인 후 `다음 액션` 섹션 제거 + `아직 더 공부할 점` 문장 흡수)
 
 ## 확인 필요 사항
 - `readme-draft.md`가 `readme-draft-template.md` 8개 섹션 구조를 그대로 따르는지 확인.
 - My Note 기반 4개 섹션("내가 이해한 점", "내 학습이나 프로젝트에 연결할 점", "아직 더 공부할 점", "다음 액션")에 Summary 내용이 섞이지 않았는지 확인.
 - "한 줄 기록"이 `my-note.md`에 있는 문장에서 선택되었는지 확인.
-- Reviewer(Codex) 흐름은 본 테스트 이후 별도 진행.
+- Reviewer(Codex) 흐름은 본 테스트 이후 별도 진행. → `review-findings.md`, `review-findings-followup.md`로 완료.
+- 게시용 `README.md`가 `readme-draft.md`의 의미·어조를 그대로 유지하는지, HTML 주석이 모두 제거되었는지 확인.

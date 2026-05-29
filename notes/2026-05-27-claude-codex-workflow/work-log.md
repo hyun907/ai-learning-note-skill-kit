@@ -128,3 +128,91 @@ README Draft 생성 (`readme-draft.md`). `readme-draft-template.md` 8개 섹션 
 - 사용자가 수정된 `readme-draft.md`를 최종 기록으로 사용할지 검토한다.
 - 필요 시 HTML 주석을 제거한 게시용 버전을 별도로 만든다.
 - 실제 Claude Code/Cowork 관련 외부 자료로 2차 테스트를 진행한다.
+
+---
+
+## 4차 작업 (2026-05-28)
+
+### 작업 목표
+검증용 `readme-draft.md`를 바탕으로 게시용 학습 기록 README(`README.md`)를 생성한다.
+
+### 전제 조건
+- Codex Reviewer가 `review-findings-followup.md` 생성 완료 (추가 수정 필요 없음).
+- 4차 plan 사용자 승인 완료 (2026-05-28). 허용 파일·금지 파일·작성 원칙 7가지 명시.
+
+### 생성한 파일
+- `notes/2026-05-27-claude-codex-workflow/README.md` — 게시용 학습 기록 README.
+
+### 수정한 파일
+- `notes/2026-05-27-claude-codex-workflow/prompt-log.md` — 4차 plan, 4차 승인, README.md 생성 내용 추가.
+- `notes/2026-05-27-claude-codex-workflow/work-log.md` — 본 항목 추가.
+
+### 게시용 README에서 제거한 요소
+- `# README Draft` 제목 → `# Claude Code와 Codex Skills를 활용한 AI 학습 기록 워크플로우`로 교체.
+- 상단 안내문 "> Summary와 My Note를 바탕으로 만든 **초안**이다. 완성본이 아니다.\n> "내가 이해한 점"은 My Note 기반으로만 정리한다. AI는 임의 해석을 추가하지 않는다." 2줄 제거.
+- 본문 HTML 주석 5곳 모두 제거 (핵심 내용 / 내가 이해한 점 / 내 학습이나 프로젝트에 연결할 점 / 아직 더 공부할 점 / 다음 액션 섹션의 `<!-- ... -->`).
+- 다음 액션 기존 4개 중 3개 제거: "수정된 README Draft를 최종 기록으로 사용할지 검토한다.", "필요하다면 HTML 주석을 제거한 게시용 버전을 별도로 만든다.", "Writer 수정 후 Reviewer 재검토가 필요한지 판단한다." (모두 본 작업·Reviewer follow-up으로 완료).
+
+### 게시용 README에서 유지한 요소
+- 섹션 구조 8개: 학습 주제 / 정리한 자료 / 핵심 내용 / 내가 이해한 점 / 내 학습이나 프로젝트에 연결할 점 / 아직 더 공부할 점 / 다음 액션 / 한 줄 기록.
+- "핵심 내용" 본문(핵심 주장 5개·주요 개념 4개)과 출처 인용 표기.
+- My Note 기반 3개 섹션 본문 문장과 어조("중요하다고 이해했다", "중요하다고 느꼈다", "방법이라고 이해했다", "구체화해야 할 것 같다") 1:1 그대로.
+- "정리한 자료"의 제목·출처·검토 시점.
+- "한 줄 기록" 1문장 그대로.
+
+### 다음 액션 정리
+사용자가 plan 6번에 제시한 4개 후보를 1~4번으로 배치. 새 표현·해석 추가 없음.
+1. 실제 Claude Code/Cowork 관련 외부 자료 일부를 넣어 2차 테스트를 진행한다.
+2. Codex Skill이 실제 환경에서 안정적으로 인식되는지 확인한다.
+3. review-findings 반영 흐름을 docs에 보강할지 검토한다.
+4. 게시용 README와 Draft를 분리해 관리하는 규칙을 정리한다.
+
+### 검증 내용
+- `README.md`의 섹션 헤더 8개가 `readme-draft.md`와 동일한 순서로 존재.
+- "내가 이해한 점", "내 학습이나 프로젝트에 연결할 점", "아직 더 공부할 점" 본문이 `readme-draft.md`와 1:1 동일 (어조 포함).
+- "핵심 내용" 인용 표기 모두 그대로 유지.
+- HTML 주석 0개 (제거 완료).
+- 상단 안내문(blockquote 2줄) 제거 완료.
+- 다음 액션 4개 항목이 plan 6번 목록과 동일.
+- 수정 금지 파일(`readme-draft.md`, `my-note.md`, `learning-summary.md`, `review-findings.md`, `review-findings-followup.md`, 루트 `README.md`, `CLAUDE.md`, `AGENTS.md`, `docs/*`, `templates/*`) 미수정.
+
+### 남은 리스크
+- 게시용 `README.md`와 검증용 `readme-draft.md`가 같은 디렉터리에 공존한다. 분리 관리 규칙은 다음 액션 4번에서 정리 예정.
+- My Note 어조를 그대로 유지했으므로 게시본으로서는 부드러운 어조가 섞여 있을 수 있다. 의도된 트레이드오프.
+
+---
+
+## 5차 작업 (2026-05-28)
+
+### 작업 목표
+게시용 `README.md`에서 작업 문서처럼 보이는 `## 다음 액션` 섹션을 제거하고, 일부 의미를 `아직 더 공부할 점`에 한 문장으로 흡수한다.
+
+### 전제 조건
+- 5차 plan 사용자 승인 완료 (2026-05-28).
+
+### 생성한 파일
+- 없음.
+
+### 수정한 파일
+- `notes/2026-05-27-claude-codex-workflow/README.md` — `## 다음 액션` 섹션 제거, `아직 더 공부할 점` 마지막에 흡수 문장 1개 추가.
+- `notes/2026-05-27-claude-codex-workflow/prompt-log.md` — 23~26번 프롬프트 흐름과 결과물 목록 갱신.
+- `notes/2026-05-27-claude-codex-workflow/work-log.md` — 본 항목 추가.
+
+### 구체 변경
+- 제거: `## 다음 액션` 섹션 전체 (헤더 + 4개 항목).
+- 추가: `아직 더 공부할 점` 마지막에 한 문장 — "이후 실제 Claude Code/Cowork 관련 외부 자료 일부를 넣어 2차 테스트를 진행하고, 게시용 README와 Draft를 분리해 관리하는 규칙도 함께 정리해볼 수 있다."
+- 유지: 나머지 6개 섹션(학습 주제 / 정리한 자료 / 핵심 내용 / 내가 이해한 점 / 내 학습이나 프로젝트에 연결할 점 / 아직 더 공부할 점 본문 / 한 줄 기록)의 본문·어조 그대로.
+- 최종 구조: 7개 섹션 (학습 주제 → 정리한 자료 → 핵심 내용 → 내가 이해한 점 → 내 학습이나 프로젝트에 연결할 점 → 아직 더 공부할 점 → 한 줄 기록).
+
+### 흡수하지 않은 항목 처리
+기존 다음 액션 4개 중 "Codex Skill 실제 환경 인식 안정성 확인", "review-findings 반영 흐름 docs 보강 검토"는 `아직 더 공부할 점` 기존 본문과 의미가 중첩되므로 별도 추가하지 않았다. 사용자 plan에 명시된 두 의미(2차 테스트 / Draft 분리 관리)만 흡수했다.
+
+### 검증 내용
+- `README.md`에 `## 다음 액션` 헤더가 더 이상 존재하지 않음.
+- 새로 추가한 문장이 `아직 더 공부할 점` 섹션 마지막 문단으로 들어가 있음.
+- 나머지 본문·인용 표기·어조 변경 없음.
+- 수정 금지 파일(`readme-draft.md`, `my-note.md`, `learning-summary.md`, `review-findings.md`, `review-findings-followup.md`, 루트 `README.md`, `CLAUDE.md`, `AGENTS.md`, `docs/*`, `templates/*`) 미수정.
+
+### 남은 리스크
+- 후속 작업 4개 중 README에서 사라진 의미는 `work-log.md` "다음 작업"과 `prompt-log.md`에 남아 있어 추적 가능하나, 별도 후속 작업 트래커가 없으면 시간이 지나며 잊힐 수 있다.
+- 게시용 README와 Draft 분리 관리 규칙은 여전히 미정의.
